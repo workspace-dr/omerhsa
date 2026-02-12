@@ -7,6 +7,9 @@ import svelte from '@astrojs/svelte';
 
 export default defineConfig({
 
+  site: 'https://workspace-dr.github.io',
+  base: '/omerhsa',
+
   vite: {
     plugins: [tailwindcss()],
   },
