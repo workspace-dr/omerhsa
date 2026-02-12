@@ -1,0 +1,45 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ContentFilter from '../../components/content/ContentFilter';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('academic')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+// Extraer categorías únicas (campo 'category' del schema académico)
+const uniqueCategories = [...new Set(papers.map(p => p.data.category))];
+
+const formattedPapers = papers.map(paper => ({
+  slug: paper.slug,
+  title: paper.data.title,
+  excerpt: paper.data.abstract, // Usamos abstract como excerpt
+  date: paper.data.publishDate.getFullYear().toString(), // Solo año para académico
+  category: paper.data.category,
+  author: paper.data.author,
+  pdfUrl: paper.data.pdfUrl,
+  type: 'academic' as const
+}));
+---
+
+<MainLayout title="Biblioteca Académica" description="Estudios, whitepapers y análisis de riesgos del mercado asegurador hondureño.">
+  
+  <section class="pt-32 pb-12 bg-gray-900 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <span class="text-omerhsa-primary font-bold tracking-widest uppercase text-sm">Investigación OMERHSA</span>
+      <h1 class="text-4xl md:text-6xl font-bold mt-4 mb-6">Biblioteca Técnica</h1>
+      <p class="text-gray-400 text-xl">
+        Recursos especializados para gerentes de riesgo, analistas financieros y clientes corporativos.
+      </p>
+    </div>
+  </section>
+
+  <ContentFilter 
+    client:load 
+    items={formattedPapers} 
+    categories={uniqueCategories} 
+    title="Publicaciones Recientes" 
+    subtitle="Filtra por área de estudio o busca palabras clave específicas."
+  />
+
+</MainLayout>

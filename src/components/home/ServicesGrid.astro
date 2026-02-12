@@ -1,0 +1,61 @@
+---
+const services = [
+  {
+    title: "Seguro de Auto",
+    desc: "Cobertura completa para tu vehículo. Asistencia vial 24/7 y gestión rápida de reclamos.",
+    icon: "🚗",
+    link: "/seguros/auto"
+  },
+  {
+    title: "Gastos Médicos",
+    desc: "Acceso a la mejor red hospitalaria nacional e internacional para ti y tu familia.",
+    icon: "🏥",
+    link: "/seguros/medico"
+  },
+  {
+    title: "Seguro de Vida",
+    desc: "Protección financiera para garantizar el futuro y la estabilidad de tus seres queridos.",
+    icon: "🛡️",
+    link: "/seguros/vida"
+  },
+  {
+    title: "Empresarial",
+    desc: "Asegura los activos de tu negocio contra incendios, robos y responsabilidad civil.",
+    icon: "🏢",
+    link: "/seguros/empresarial"
+  }
+];
+---
+
+<section class="py-20 bg-omerhsa-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 class="text-omerhsa-primary font-bold text-sm tracking-wide uppercase mb-2">Nuestros Servicios</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Protección a tu medida</h3>
+      </div>
+      <a href="/servicios" class="hidden md:flex items-center text-omerhsa-primary font-semibold hover:text-omerhsa-dark transition">
+        Ver todos los servicios 
+        <span class="ml-2">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(service => (
+        <a href={service.link} class="group bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-omerhsa-primary/30 relative overflow-hidden">
+          <div class="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+          <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-omerhsa-primary transition-colors">{service.title}</h4>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">{service.desc}</p>
+          <span class="text-omerhsa-primary font-bold text-sm flex items-center">
+            Explorar cobertura 
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+    
+    <div class="mt-8 text-center md:hidden">
+      <a href="/servicios" class="text-omerhsa-primary font-bold">Ver todos los servicios &rarr;</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ContentFilter from '../../components/content/ContentFilter';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const allTags = posts.flatMap(post => post.data.tags || []);
+const uniqueCategories = [...new Set(allTags)];
+
+const formattedPosts = posts.map(post => ({
+  slug: post.slug,
+  title: post.data.title,
+  excerpt: post.data.excerpt,
+  date: post.data.publishDate.toLocaleDateString('es-HN', { year: 'numeric', month: 'long', day: 'numeric' }),
+  category: post.data.tags ? post.data.tags[0] : 'General',
+  image: post.data.image || 'https://placehold.co/600x400/f1f5f9/0179b6?text=Noticia',
+  type: 'blog' as const
+}));
+---
+
+<MainLayout title="Blog y Actualidad" description="Noticias, consejos y novedades del mundo de los seguros en Honduras.">
+  
+  {/* Encabezado simple */}
+  <div class="pt-32 pb-8 bg-gray-50 text-center">
+    <span class="text-omerhsa-primary font-bold tracking-widest uppercase text-sm">Blog OMERHSA</span>
+  </div>
+
+  {/* Componente Integrado (Filtros + Sidebar + Grid) */}
+  <ContentFilter 
+    client:load 
+    items={formattedPosts} 
+    categories={uniqueCategories} 
+    title="Noticias Recientes" 
+    subtitle="Mantente informado sobre cómo proteger mejor tu patrimonio."
+  />
+
+</MainLayout>

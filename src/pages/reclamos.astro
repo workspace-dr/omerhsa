@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ClaimsHero from '../components/claims/ClaimsHero.astro';
+import EmergencyGrid from '../components/claims/EmergencyGrid.astro';
+import ClaimsSteps from '../components/claims/ClaimsSteps.astro';
+import ClaimsFAQ from '../components/claims/ClaimsFAQ';
+import DownloadForms from '../components/claims/DownloadForms.astro';
+---
+
+<MainLayout 
+  title="Centro de Reclamos" 
+  description="Guía de asistencia en caso de siniestro. Números de emergencia y pasos para gestionar tu reclamo con OMERHSA."
+>
+  <main class="bg-gray-50 pb-20">
+    <ClaimsHero />
+    <EmergencyGrid />
+    <ClaimsSteps />
+    <DownloadForms />
+    <section class="py-12 px-4">
+      <ClaimsFAQ client:visible />
+    </section>
+  </main>
+</MainLayout>

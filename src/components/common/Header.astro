@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG, NAV_LINKS } from '../../lib/constants';
+import MobileMenu from './MobileMenu';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm border-b border-omerhsa-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/">
+          <Image 
+            src={SITE_CONFIG.logo} 
+            alt={`Logo ${SITE_CONFIG.name}`} 
+            class="h-12 w-auto object-contain"
+            loading="eager"
+          />
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex space-x-8 items-center">
+        {NAV_LINKS.map((link) => (
+          <a 
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition-colors duration-200",
+              currentPath === link.href ? "text-omerhsa-primary" : "text-gray-600 hover:text-omerhsa-primary"
+            ]}
+          >
+            {link.name}
+          </a>
+        ))}
+        
+        <a 
+          href="/cotizar" 
+          class="ml-4 px-5 py-2.5 rounded-md bg-omerhsa-primary text-white font-semibold text-sm hover:bg-omerhsa-dark transition-all shadow-sm hover:shadow-md"
+        >
+          Cotizar
+        </a>
+      </nav>
+
+      <MobileMenu client:load />
+    </div>
+  </div>
+</header>

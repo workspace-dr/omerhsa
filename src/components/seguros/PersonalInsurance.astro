@@ -1,0 +1,87 @@
+---
+const products = [
+  {
+    id: "auto",
+    title: "Seguro de Automóvil",
+    subtitle: "Cobertura Completa + Asistencia",
+    desc: "Protección integral para tu vehículo ante colisiones, vuelcos, robo total o parcial. Incluye responsabilidad civil por daños a terceros y asistencia vial 24/7 en todo el territorio nacional.",
+    features: ["Daños Propios y a Terceros", "Robo Total y Parcial", "Auto Sustituto (Opcional)", "Gastos Médicos Ocupantes"],
+    img: "https://placehold.co/600x400/f1f5f9/0179b6?text=Auto+Seguro",
+    cols: "md:col-span-2"
+  },
+  {
+    id: "medico",
+    title: "Gastos Médicos",
+    subtitle: "Red Nacional e Internacional",
+    desc: "Acceso a medicina de primer nivel. Cubre hospitalización, cirugía, maternidad y consultas externas. Planes deducibles ajustables a tu presupuesto familiar.",
+    features: ["Hospitalización", "Maternidad", "Cobertura Ambulatoria", "Red Mundial"],
+    img: "https://placehold.co/400x400/f1f5f9/0179b6?text=Medico",
+    cols: "md:col-span-1"
+  },
+  {
+    id: "vida",
+    title: "Vida y Accidentes",
+    subtitle: "Seguridad Financiera",
+    desc: "Garantiza la estabilidad económica de tus beneficiarios en caso de fallecimiento o invalidez. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    features: ["Muerte Natural/Accidental", "Invalidez Total", "Rentas Vitalicias", "Gastos Funerarios"],
+    img: "https://placehold.co/400x400/f1f5f9/0179b6?text=Vida",
+    cols: "md:col-span-1"
+  },
+  {
+    id: "hogar",
+    title: "Residencial",
+    subtitle: "Incendio y Robo",
+    desc: "Protege tu vivienda y contenidos contra incendios, rayos, inundaciones y actos delictivos. Incluye asistencia en el hogar (plomería, electricidad).",
+    features: ["Estructura y Contenidos", "Responsabilidad Civil", "Desastres Naturales", "Equipo Electrónico"],
+    img: "https://placehold.co/600x400/f1f5f9/0179b6?text=Hogar",
+    cols: "md:col-span-2"
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
+        <span class="w-2 h-8 bg-omerhsa-primary rounded-full"></span>
+        Seguros para Personas
+      </h2>
+      <p class="text-gray-500 mt-2 ml-5">Soluciones para ti y tu familia.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {products.map((item) => (
+        <div class={`group relative bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:border-omerhsa-primary/30 transition-all duration-300 hover:shadow-xl ${item.cols}`}>
+          <div class="flex flex-col h-full">
+            <div class="relative h-48 overflow-hidden">
+              <img src={item.img} alt={item.title} class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider text-omerhsa-primary shadow-sm">
+                {item.subtitle}
+              </div>
+            </div>
+            
+            <div class="p-8 flex-grow flex flex-col">
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                {item.desc}
+              </p>
+              
+              <div class="space-y-2 mb-8">
+                {item.features.map((feature) => (
+                  <div class="flex items-center text-sm text-gray-500">
+                    <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    {feature}
+                  </div>
+                ))}
+              </div>
+
+              <a href={`/cotizar?type=${item.id}`} class="w-full block text-center py-3 rounded-xl border border-omerhsa-primary text-omerhsa-primary font-bold hover:bg-omerhsa-primary hover:text-white transition-colors">
+                Cotizar {item.title}
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,74 @@
+---
+const corporateProducts = [
+  {
+    title: "Incendio y Líneas Aliadas",
+    desc: "Protección patrimonial para edificios, inventarios y maquinaria contra incendio, rayo, explosión y riesgos catastróficos.",
+    icon: "🏢"
+  },
+  {
+    title: "Responsabilidad Civil",
+    desc: "Cobertura ante daños causados a terceros en el desarrollo de sus operaciones comerciales o industriales.",
+    icon: "⚖️"
+  },
+  {
+    title: "Flotas de Vehículos",
+    desc: "Planes colectivos para asegurar el parque vehicular de su empresa con tarifas preferenciales y gestión centralizada.",
+    icon: "🚛"
+  },
+  {
+    title: "Fianzas y Garantías",
+    desc: "Respaldo para licitaciones (Oferta, Cumplimiento, Anticipo, Calidad de Obra) exigido por la Ley de Contratación.",
+    icon: "📝"
+  },
+  {
+    title: "Transporte de Carga",
+    desc: "Aseguramiento de mercancías (importación/exportación) vía terrestre, aérea o marítima. Tránsito interno e internacional.",
+    icon: "📦"
+  },
+  {
+    title: "Colectivo Vida y Médico",
+    desc: "Beneficios para empleados. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.",
+    icon: "👥"
+  }
+];
+---
+
+<section class="py-24 bg-gray-900 text-white rounded-t-[3rem] -mt-10 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+      <div>
+        <span class="text-omerhsa-primary font-bold tracking-widest uppercase text-sm">Corporativo</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-2">Soluciones Empresariales</h2>
+        <p class="text-gray-400 mt-4 max-w-xl">
+          Análisis de riesgos y programas de seguros a la medida para garantizar la continuidad de su negocio.
+        </p>
+      </div>
+      <a href="/contacto" class="hidden md:inline-flex px-6 py-3 bg-white text-gray-900 rounded-xl font-bold hover:bg-omerhsa-primary hover:text-white transition-colors mt-6 md:mt-0">
+        Agendar Auditoría de Riesgos
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {corporateProducts.map((prod) => (
+        <div class="bg-gray-800/50 p-8 rounded-3xl border border-gray-700 hover:border-omerhsa-primary hover:bg-gray-800 transition-all duration-300 group">
+          <div class="w-14 h-14 bg-gray-700 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-omerhsa-primary group-hover:text-white transition-colors">
+            {prod.icon}
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white group-hover:text-omerhsa-primary transition-colors">{prod.title}</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            {prod.desc}
+          </p>
+          <a href="/contacto" class="text-sm font-bold text-gray-500 hover:text-white flex items-center gap-2 transition-colors">
+            Solicitar Información <span class="text-omerhsa-primary">&rarr;</span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center md:hidden">
+      <a href="/contacto" class="w-full inline-flex justify-center px-6 py-4 bg-white text-gray-900 rounded-xl font-bold">
+        Agendar Asesoría
+      </a>
+    </div>
+  </div>
+</section>

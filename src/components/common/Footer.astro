@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import { SITE_CONFIG } from '../../lib/constants';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white pt-12 pb-8 border-t border-omerhsa-primary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    <div>
+      <div class="mb-4">
+         <Image 
+            src={SITE_CONFIG.logo} 
+            alt="OMERHSA" 
+            class="h-10 w-auto object-contain brightness-0 invert" 
+          />
+      </div>
+      <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+        {SITE_CONFIG.description}
+      </p>
+      <div class="flex space-x-4">
+        <a href={SITE_CONFIG.social.facebook} class="text-gray-400 hover:text-omerhsa-primary transition">FB</a>
+        <a href={SITE_CONFIG.social.instagram} class="text-gray-400 hover:text-omerhsa-primary transition">IG</a>
+        <a href={SITE_CONFIG.social.linkedin} class="text-gray-400 hover:text-omerhsa-primary transition">IN</a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-4 text-omerhsa-primary">Compañía</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="/nosotros" class="hover:text-white transition">Nosotros</a></li>
+        <li><a href="/servicios" class="hover:text-white transition">Servicios</a></li>
+        <li><a href="/blog" class="hover:text-white transition">Blog y Noticias</a></li>
+        <li><a href="/contacto" class="hover:text-white transition">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-4 text-omerhsa-primary">Seguros</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="/seguros" class="hover:text-white transition">Vehículos</a></li>
+        <li><a href="/seguros" class="hover:text-white transition">Vida y Salud</a></li>
+        <li><a href="/seguros" class="hover:text-white transition">Empresariales</a></li>
+        <li><a href="/reclamos" class="hover:text-white transition">Gestionar Reclamo</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-4 text-omerhsa-primary">Contacto</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li class="flex items-start">
+          <span class="mr-2">📍</span>
+          <span>{SITE_CONFIG.contact.address}</span>
+        </li>
+        <li class="flex items-center">
+          <span class="mr-2">📞</span>
+          <a href={`tel:${SITE_CONFIG.contact.phone}`} class="hover:text-white transition">{SITE_CONFIG.contact.phone}</a>
+        </li>
+        <li class="flex items-center">
+          <span class="mr-2">✉️</span>
+          <a href={`mailto:${SITE_CONFIG.contact.email}`} class="hover:text-white transition">{SITE_CONFIG.contact.email}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center md:text-left flex flex-col md:flex-row justify-between text-sm text-gray-500">
+    <p>&copy; {currentYear} {SITE_CONFIG.name}. Todos los derechos reservados.</p>
+    <div class="flex space-x-6 justify-center md:justify-end mt-4 md:mt-0">
+      <a href="/politicas" class="hover:text-white transition">Políticas de Privacidad</a>
+      <a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a>
+    </div>
+  </div>
+</footer>

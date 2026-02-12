@@ -1,0 +1,98 @@
+---
+const personalServices = [
+  {
+    title: "Vehículos",
+    desc: "Cobertura total contra daños, robo y responsabilidad civil. Asistencia vial 24/7 incluida.",
+    icon: "🚗",
+    image: "https://placehold.co/600x400/f1f5f9/0179b6?text=Auto"
+  },
+  {
+    title: "Gastos Médicos",
+    desc: "Acceso a la mejor red hospitalaria nacional e internacional. Planes individuales y familiares.",
+    icon: "🏥",
+    image: "https://placehold.co/600x400/f1f5f9/0179b6?text=Salud"
+  },
+  {
+    title: "Vida y Ahorro",
+    desc: "Garantiza el futuro de tus seres queridos y construye un fondo de retiro sólido.",
+    icon: "🛡️",
+    image: "https://placehold.co/600x400/f1f5f9/0179b6?text=Vida"
+  },
+  {
+    title: "Residencial",
+    desc: "Protege tu hogar contra incendios, inundaciones y robo. Tu patrimonio seguro.",
+    icon: "🏠",
+    image: "https://placehold.co/600x400/f1f5f9/0179b6?text=Hogar"
+  }
+];
+
+const businessServices = [
+  { title: "Flotas Vehiculares", desc: "Gestión centralizada para empresas de transporte o logística." },
+  { title: "Colectivos de Vida/Médico", desc: "El mejor beneficio para retener a tu talento humano." },
+  { title: "Responsabilidad Civil", desc: "Protección ante daños a terceros en tus operaciones." },
+  { title: "Incendio y Líneas Aliadas", desc: "Cobertura para edificios, inventarios y maquinaria." },
+  { title: "Fianzas y Garantías", desc: "Respaldo para licitaciones y cumplimiento de contratos." },
+  { title: "Carga y Transporte", desc: "Asegura tu mercancía desde el origen hasta el destino." },
+];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mb-24">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Para Ti y Tu Familia</h2>
+          <p class="text-gray-500 mt-2">Soluciones diseñadas para tu tranquilidad diaria.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {personalServices.map((service) => (
+          <div class="group relative rounded-3xl overflow-hidden bg-gray-50 border border-gray-100 hover:border-omerhsa-primary/30 transition-all duration-300 hover:shadow-xl">
+            <div class="h-48 overflow-hidden">
+              <img src={service.image} alt={service.title} class="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+            </div>
+            <div class="p-6">
+              <div class="text-3xl mb-4">{service.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                {service.desc}
+              </p>
+              <a href="/cotizar" class="inline-flex items-center font-bold text-omerhsa-primary hover:gap-2 transition-all">
+                Cotizar <span class="ml-2">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="rounded-3xl bg-gray-900 text-white p-8 md:p-16 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-omerhsa-primary opacity-20 blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div class="relative z-10 grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-1">
+          <span class="text-omerhsa-primary font-bold tracking-widest uppercase text-sm">Corporativo</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6">Soluciones Empresariales</h2>
+          <p class="text-gray-400 text-lg leading-relaxed mb-8">
+            Entendemos los riesgos de tu industria. Diseñamos programas de seguros que protegen tu balance financiero y aseguran la continuidad de tu negocio.
+          </p>
+          <a href="/contacto" class="inline-block bg-white text-gray-900 hover:bg-omerhsa-primary hover:text-white px-8 py-4 rounded-xl font-bold transition-colors">
+            Agendar Asesoría Corporativa
+          </a>
+        </div>
+
+        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+          {businessServices.map((service) => (
+            <div class="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition duration-300 backdrop-blur-sm">
+              <h3 class="text-xl font-bold text-white mb-2">{service.title}</h3>
+              <p class="text-gray-400 text-sm">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

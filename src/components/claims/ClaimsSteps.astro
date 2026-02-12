@@ -1,0 +1,47 @@
+---
+const steps = [
+  { 
+    title: "Asegura el área", 
+    desc: "Verifica que no haya heridos. Si es un accidente de tránsito, no muevas el vehículo a menos que la autoridad lo indique.",
+    icon: "🛡️"
+  },
+  { 
+    title: "Documenta todo", 
+    desc: "Toma fotografías de los daños, documentos de terceros involucrados y la escena general.",
+    icon: "📸"
+  },
+  { 
+    title: "Reporta el siniestro", 
+    desc: "Llama a nuestra cabina o reporta a través de nuestro formulario en línea en un plazo no mayor a 3 días.",
+    icon: "📞"
+  },
+  { 
+    title: "Inspección y Ajuste", 
+    desc: "Un ajustador evaluará los daños. Nosotros te acompañaremos en la negociación para un pago justo.",
+    icon: "📝"
+  }
+];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Proceso de Reclamo</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map((step, index) => (
+        <div class="relative group">
+          <div class="w-16 h-16 bg-omerhsa-light text-3xl flex items-center justify-center rounded-2xl mb-6 group-hover:bg-omerhsa-primary group-hover:text-white transition-colors duration-300">
+            {step.icon}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">
+            <span class="text-omerhsa-primary mr-2">{index + 1}.</span>
+            {step.title}
+          </h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            {step.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

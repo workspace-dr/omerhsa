@@ -1,0 +1,61 @@
+---
+import { SITE_CONFIG } from '../../lib/constants';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+const { 
+  title, 
+  description = SITE_CONFIG.description, 
+  image = "/images/og-default.jpg", // Asegúrate de crear esta imagen (1200x630px)
+  article = false 
+} = Astro.props;
+
+const siteName = SITE_CONFIG.name;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Schema.org para Agencia de Seguros
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": SITE_CONFIG.name,
+  "image": SITE_CONFIG.logoUrl, // Asegúrate que esta URL sea absoluta pública
+  "@id": Astro.site,
+  "url": Astro.site,
+  "telephone": SITE_CONFIG.contact.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Edificio Corporativo Los Próceres", // Ajustar
+    "addressLocality": "Tegucigalpa",
+    "addressCountry": "HN"
+  }
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalURL} />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title} | {siteName}</title>
+<meta name="title" content={`${title} | ${siteName}`} />
+<meta name="description" content={description} />
+
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

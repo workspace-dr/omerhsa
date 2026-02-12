@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SegurosHero from '../components/seguros/SegurosHero.astro';
+import PersonalInsurance from '../components/seguros/PersonalInsurance.astro';
+import BusinessInsurance from '../components/seguros/BusinessInsurance.astro';
+import ClaimsInfo from '../components/seguros/ClaimsInfo.astro';
+import CtaBlock from '../components/home/CtaBlock.astro';
+---
+
+<MainLayout 
+  title="Nuestros Seguros" 
+  description="Explora nuestro catálogo de seguros: Auto, Vida, Médico, Incendio, Fianzas y más. Protección respaldada por las mejores aseguradoras de Honduras."
+>
+  <main>
+    <SegurosHero />
+    <PersonalInsurance />
+    <BusinessInsurance />
+    <ClaimsInfo />
+    <CtaBlock />
+  </main>
+</MainLayout>

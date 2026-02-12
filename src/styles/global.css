@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Paleta de colores OMERHSA */
+  --color-omerhsa-primary: #0179b6;
+  --color-omerhsa-dark: #015f8f; /* 10% más oscuro para hover */
+  --color-omerhsa-light: #f5f5f5;
+  --color-omerhsa-gray: #b5b5b5;
+
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Estilos base globales */
+html,
+body {
+  @apply h-full w-full bg-white text-gray-900;
+  scroll-behavior: smooth;
+}

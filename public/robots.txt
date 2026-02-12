@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omerhsa.com/sitemap-index.xml

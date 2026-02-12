@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import MobileStickyFooter from '../components/common/MobileStickyFooter'; // Importar
+---
+
+<MainLayout title="Términos y Condiciones">
+  
+  <div class="max-w-4xl mx-auto py-20 px-4 mb-24"> <h1 class="text-3xl font-bold text-gray-900 mb-6">Términos y Condiciones</h1>
+    <p class="text-gray-600 mb-4">
+      Bienvenido a OMERHSA. Al utilizar nuestros servicios, usted acepta...
+    </p>
+    <div class="prose prose-blue text-gray-600">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>(Aquí va todo el contenido legal...)</p>
+        <p>Lorem ipsum dolor sit amet...</p>
+    </div>
+  </div>
+
+  <MobileStickyFooter client:load />
+
+</MainLayout>

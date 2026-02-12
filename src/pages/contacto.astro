@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ContactHero from '../components/contact/ContactHero.astro';
+import ContactInfoGrid from '../components/contact/ContactInfoGrid.astro';
+import ContactForm from '../components/contact/ContactForm'; // Componente React
+---
+
+<MainLayout 
+  title="Contacto" 
+  description="Contáctanos para asesoría en seguros, reclamos o consultas generales. Estamos ubicados en Tegucigalpa."
+>
+  <main>
+    <ContactHero />
+    <ContactInfoGrid />
+    
+    <section class="py-24 bg-gray-50 relative">
+      <div class="absolute top-0 left-0 w-full h-1/2 bg-gray-50"></div>
+      <div class="absolute bottom-0 left-0 w-full h-1/2 bg-omerhsa-primary/5"></div>
+      
+      <div class="max-w-4xl mx-auto px-4 relative z-10">
+        <ContactForm client:visible />
+      </div>
+    </section>
+
+  </main>
+</MainLayout>

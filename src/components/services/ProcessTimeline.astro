@@ -1,0 +1,29 @@
+<section class="py-24 bg-omerhsa-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Metodología OMERHSA</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Más que vender una póliza, gestionamos tus riesgos a través de un proceso estructurado.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {[
+        { step: "01", title: "Análisis", desc: "Evaluamos tu situación actual y detectamos vulnerabilidades." },
+        { step: "02", title: "Diseño", desc: "Creamos un plan de protección a la medida de tu presupuesto." },
+        { step: "03", title: "Gestión", desc: "Nos encargamos de toda la burocracia con la aseguradora." },
+        { step: "04", title: "Respaldo", desc: "Te acompañamos 24/7 en caso de siniestros o reclamos." }
+      ].map((item, index) => (
+        <div class="relative group">
+          <div class="text-6xl font-bold text-gray-200 group-hover:text-omerhsa-primary/20 transition-colors mb-4">
+            {item.step}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2 relative z-10">{item.title}</h3>
+          <p class="text-gray-600 text-sm relative z-10">{item.desc}</p>
+          
+          {index !== 3 && (
+            <div class="hidden md:block absolute top-8 left-1/2 w-full h-[2px] bg-gray-200 -z-0"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

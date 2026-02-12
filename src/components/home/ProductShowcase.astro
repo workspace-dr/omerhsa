@@ -1,0 +1,54 @@
+---
+const products = [
+  { 
+    title: "Seguro de Vehículo", 
+    price: "Cobertura Total", 
+    img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800",
+    desc: "Protege tu auto contra accidentes y robo." 
+  },
+  { 
+    title: "Seguro Médico", 
+    price: "Red Mundial", 
+    img: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=800",
+    desc: "Acceso a los mejores especialistas." 
+  },
+  { 
+    title: "Patrimonial", 
+    price: "Hogar Seguro", 
+    img: "https://images.unsplash.com/photo-1600596542815-2a4d9fdb5e65?auto=format&fit=crop&q=80&w=800",
+    desc: "Tu vivienda protegida contra incendios." 
+  },
+];
+---
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+      <h2 class="text-4xl font-bold text-gray-900">Propiedades Destacadas</h2>
+      
+      <div class="flex gap-2">
+        <button class="px-5 py-2 rounded-full bg-gray-900 text-white text-sm font-medium transition hover:bg-omerhsa-primary">Todos</button>
+        <button class="px-5 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:border-omerhsa-primary hover:text-omerhsa-primary transition">Personales</button>
+        <button class="px-5 py-2 rounded-full border border-gray-200 text-gray-600 text-sm font-medium hover:border-omerhsa-primary hover:text-omerhsa-primary transition">Empresariales</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {products.map((item) => (
+        <a href="/cotizar" class="group block cursor-pointer">
+          <div class="relative overflow-hidden rounded-2xl mb-4 h-72 shadow-sm border border-gray-100">
+            <img src={item.img} alt={item.title} class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider text-gray-800 shadow-sm">
+              Popular
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-1 group-hover:text-omerhsa-primary transition-colors">{item.title}</h3>
+          <p class="text-omerhsa-primary text-sm font-bold mb-2">{item.price}</p>
+          <p class="text-gray-500 text-sm mb-4 line-clamp-2">{item.desc}</p>
+          <span class="inline-flex items-center text-sm font-semibold border-b-2 border-transparent group-hover:border-omerhsa-primary group-hover:text-omerhsa-primary transition-all pb-0.5">
+            Ver Cobertura
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

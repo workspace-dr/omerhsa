@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import MissionVisionBento from '../components/about/MissionVisionBento.astro';
+import TeamGrid from '../components/about/TeamGrid.astro';
+import StatsSection from '../components/about/StatsSection.astro';
+import CtaBlock from '../components/home/CtaBlock.astro'; // Reutilizamos el CTA
+---
+
+<MainLayout 
+  title="Nosotros - OMERHSA" 
+  description="Conoce la historia y el equipo detrás de OMERHSA, tu correduría de seguros de confianza en Honduras desde 1990."
+>
+  <main>
+    <AboutHero />
+    <MissionVisionBento />
+    <StatsSection />
+    <TeamGrid />
+    <CtaBlock />
+  </main>
+</MainLayout>
