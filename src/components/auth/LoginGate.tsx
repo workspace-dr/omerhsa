@@ -113,7 +113,7 @@ export default function LoginGate() {
             </form>
 
             <div className="mt-6 text-center text-xs text-gray-400">
-              © {new Date().getFullYear()} OMERHSA Seguros. <br/> Acceso autorizado únicamente.
+              © {new Date().getFullYear()} OMERHSA Seguros. <br/> Acceso autorizado únicamente. Servicio IT.
             </div>
           </div>
         )}
