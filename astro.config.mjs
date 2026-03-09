@@ -1,18 +1,13 @@
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import react from '@astrojs/react';
-import vue from '@astrojs/vue';
-import svelte from '@astrojs/svelte';
+import tailwind from '@astrojs/tailwindcss';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-
-  site: 'https://workspace-dr.github.io',
+site: 'https://workspace-dr.github.io',
   base: '/omerhsa',
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
-
-  integrations: [react(), vue(), svelte()],
+  integrations: [react(), tailwind(), sitemap()],
+  image: {
+    service: passthroughImageService()
+  }
 });
